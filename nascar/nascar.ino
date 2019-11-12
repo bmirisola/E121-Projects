@@ -73,7 +73,7 @@ motor2.write(90);
 
 
 double centerCalculateDistance(){
- delay(sampleRate);
+ //delay(sampleRate);
  duration_C = ultrasonicPing(D3,D5);
  return duration_C/inchesDivisor;   
 }
@@ -92,25 +92,29 @@ double rightCalculateDistance(){
 
 void loop() {
   // put your main code here, to run repeatedly:
-//  //Serial.println(centerCalculateDistance());
-//    //Serial.println(rightCalculateDistance());
-//    Serial.println(leftCalculateDistance());
-//  if (turns >= 4 && centerCalculateDistance() < 10){
-//    stop();
-//  }
-//  
-//   if(!drivenForwardsLong){
-//    spin(50);
-//    if(centerCalculateDistance()< 5)
-//    {
-//      drivenForwardsLong = true;
-//    }
-//  }
-//
-//  else if(drivenForwardsLong){
-//          turn();
-//  }
-    motor1.write(0);
-    motor2.write(0);
-    Serial.println("This is working");
+  //Serial.println(centerCalculateDistance());
+    //Serial.println(rightCalculateDistance());
+    Serial.println(leftCalculateDistance());
+  if (turns >= 4 && centerCalculateDistance() < 10){
+    stop();
+  }
+  
+   if(!drivenForwardsLong){
+    if(centerCalculateDistance()< 5)
+    {
+      drivenForwardsLong = true;
+    }
+  }
+
+  else if(drivenForwardsLong){
+          turn();
+  }
+
+  else{
+    spin(50);
+  }
+//    motor1.write(0);
+//    motor2.write(0);
+  Serial.println(centerCalculateDistance());
+  Serial.println("hi:");
 }
