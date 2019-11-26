@@ -20,6 +20,7 @@ const int speed3 = 80;
 const int speed4 = 80;
 
 const int timeForSpin = 600;
+//700
 
 const int sampleRate = 10;
 const double inchesDivisor = 148;

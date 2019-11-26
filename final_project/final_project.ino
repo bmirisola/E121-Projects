@@ -1,3 +1,4 @@
+//Wemos libraries
 #include <WemosInit.h>
 #include <Servo.h>
 
@@ -10,54 +11,57 @@ Servo rightMotor;
 int counter = 0;
 
 void setup() {
+  //Initializes left and right motors to their respective pins
   leftMotor.attach(leftMotorPin);
   rightMotor.attach(rightMotorPin);
   
   Serial.begin(115200);  // Set baud rate to serial monitor
-  delay(2000);//Delay 5 seconds to allow for time to open Serial Monitor after program upload
-  // put your setup code here, to run once:
+  delay(2000);//Delay 2 seconds to allow for time to open Serial Monitor after program upload
 
-  drive(30);
-  delay(200);
-  turnRight(300);
-  drive(15);
-  delay(1800);
-  turnLeft(200);
-  drive(15);
-  delay(1200);
-  stop();
-  delay(1000);
-  drive(170);
-  delay(900);
-  stop();
-  delay(1000);
-  drive(75);
-  delay(300);
-  stop();
-  delay(500);
-  turnLeft(250);
-  drive(15);
-  delay(1400);
-  stop();
-  turnRight(275);
-  drive(15);
-  delay(800);
-  stop();
-  delay(500);
-  drive(170);
-  delay(1000);
-  stop();
-  delay(500);
-  turnLeft(300);
-  drive(20);
-  delay(200);
-  stop();
-  
-  
-//drive(165);
+  drive(30); //drive forwards at 30 speed
+  delay(200); //Drive forwards for 200 milliseconds
+  turnRight(300); //Call the turn right method for 300 milliseconds
+  drive(15); //drive forwards at 15 speed
+  delay(1800); //Drive forwards for 1800 milliseconds
+  turnLeft(200); //Call the turn left method for 300 milliseconds
+  drive(15); //drive forwards at 15 speed
+  delay(1200); ////Drive forwards for 1200 milliseconds
+  stop(); //stop all motors. Set speed equal to Zero
+  delay(1000); //Wait 1000 milliseconds before starting to move again
+  drive(170); //drive backwards at 170 speed
+  delay(900); //Drive forwards for 900 milliseconds
+  stop(); //stop all motors. Set speed equal to Zero
+  delay(1000); //Wait 1000 milliseconds before starting to move again
+  drive(75); //drive forwards at 75 speed
+  delay(300); //Drive forwards for 300 milliseconds
+  stop(); //stop all motors. Set speed equal to Zero
+  delay(500); //Wait 500 milliseconds before starting to move again
+  turnLeft(250); //Call the turn right method for 250 milliseconds
+  drive(15); //drive forwards at 15 speed
+  delay(1400); //Drive forwards for 1400 milliseconds
+  stop(); //stop all motors. Set speed equal to Zero
+  turnRight(275); //Call the turn right method for 275 milliseconds
+  drive(15); //drive forwards at 15 speed
+  delay(800); //Drive forwards for 800 milliseconds
+  stop(); //stop all motors. Set speed equal to Zero
+  delay(500); //Wait 500 milliseconds before starting to move again
+  drive(170); //drive backwards at 170 speed
+  delay(1000); //Drive forwards for 1000 milliseconds
+  stop(); //stop all motors. Set speed equal to Zero
+  delay(500); //Wait 500 milliseconds before starting to move again
+  turnLeft(300); //Call the turn left method for 300 milliseconds
+  drive(20); //drive forwards at 20 speed
+  delay(200); //Drive forwards for 200 milliseconds
+  stop(); //stop all motors. Set speed equal to Zero
   
 }
-
+/* @function    drive   
+ * @discussion          Function to move the motors forwards and backwards. 
+ *                      Code automatically reverses delivered voltage to leftmotor
+ *                      because motors are mirror imaged.
+ * @param       speed   the speed the motors should be set to. 
+ *                      Closer to zero means forwards. 180 represents backwards. 90 = stop
+ */
 void drive(int speed){
 
   rightMotor.write(speed);
@@ -73,6 +77,11 @@ void drive(int speed){
 
 }
 
+/* @function    turnLeft   
+ * @discussion          Function to turn the robot left. Robot moves at 60 speed
+ *                      Then stops for 500 milliseconds
+ * @param timeForSpin   Duration in milliseconds for turning of robot. 
+ */
 void turnLeft(int timeForSpin){
   stop();
   delay(750);
@@ -84,6 +93,11 @@ void turnLeft(int timeForSpin){
   delay(500);
 }
 
+/* @function    turnRight   
+ * @discussion          Function to turn the robot right. Robot moves at 120 speed
+ *                      Then stops for 500 milliseconds
+ * @param timeForSpin   Duration in milliseconds for turning of robot. 
+ */
 void turnRight(int timeForSpin){
   stop();
   delay(750);
@@ -95,6 +109,9 @@ void turnRight(int timeForSpin){
   delay(500);
 }
 
+/* @function    stop   
+ * @discussion          Function to stop all motors. Motors set to 90 speed.
+ */
 void stop (){
 leftMotor.write(90);
 rightMotor.write(90);
@@ -103,6 +120,5 @@ Serial.println("Stop");
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //rightMotor.write(0);
 
 }
