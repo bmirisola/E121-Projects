@@ -18,27 +18,27 @@ void setup() {
   Serial.begin(115200);  // Set baud rate to serial monitor
   delay(2000);//Delay 2 seconds to allow for time to open Serial Monitor after program upload
 
-  drive(15); //drive forwards at 30 speed
-  delay(850); //Drive forwards for 300 milliseconds
+  drive(15); //drive forwards at 15 speed
+  delay(850); //Drive forwards for 850 milliseconds
   turnRight(300); //Call the turn right method for 300 milliseconds
   drive(15); //drive forwards at 15 speed
-  delay(1800); //Drive forwards for 1500 milliseconds
+  delay(1800); //Drive forwards for 1800 milliseconds
   turnLeft(300); //Call the turn left method for 300 milliseconds
   drive(15); //drive forwards at 15 speed
-  delay(400); ////Drive forwards for 500 milliseconds
+  delay(400); ////Drive forwards for 400 milliseconds
   stop(); //stop all motors. Set speed equal to Zero
-  delay(900); //Wait 1000 milliseconds before starting to move again
+  delay(900); //Wait 900 milliseconds before starting to move again
   drive(170); //drive backwards at 170 speed
-  delay(1000); //Drive backwards for 900 milliseconds
+  delay(1000); //Drive backwards for 1000 milliseconds
   stop(); //stop all motors. Set speed equal to Zero
   delay(1000); //Wait 1000 milliseconds before starting to move again
-  drive(15); //drive forwards at 75 speed
+  drive(15); //drive forwards at 15 speed
   delay(800); //Drive forwards for 800 milliseconds
   stop(); //stop all motors. Set speed equal to Zero
   delay(500); //Wait 500 milliseconds before starting to move again
   turnLeft(250); //Call the turn right method for 250 milliseconds
   drive(15); //drive forwards at 15 speed
-  delay(1500); //Drive forwards for 1400 milliseconds
+  delay(1500); //Drive forwards for 1500 milliseconds
   stop(); //stop all motors. Set speed equal to Zero
   turnRight(275); //Call the turn right method for 275 milliseconds
   drive(15); //drive forwards at 15 speed
