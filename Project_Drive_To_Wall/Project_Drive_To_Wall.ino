@@ -15,7 +15,6 @@ const int THRESHOLD = 5;
 const int speed1 = 80;
 
 const int timeForSpin = 600;
-//700
 
 const int sampleRate = 10;
 const double inchesDivisor = 148;
@@ -23,7 +22,6 @@ const double inchesDivisor = 148;
 boolean drivenForwards = false;
 boolean turned = false;
 boolean finished = false;
-
 
 void setup(){
   Serial.begin(115200); // Set baud rate to serial monitor
@@ -51,12 +49,12 @@ motor1.write(speed);
 if(speed < 90){
   motor2.write(180 - speed +5);
   Serial.println(180 - speed);
-}
+  }
 
 else if(speed > 90){
   motor2.write(170+speed);
     Serial.println(180 + speed);
-}
+  }
 
 }
 
@@ -89,7 +87,6 @@ double calculateDistance(){
 void driveToWall(){
   if(calculateDistance() >= THRESHOLD){
     spin(speed1);
-    //drivenForwards = false;
  }
 
  else if (calculateDistance() < 4){
